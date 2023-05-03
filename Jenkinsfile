@@ -17,19 +17,19 @@ pipeline {
         
         stage ("terraform init") {
             steps {
-                sh ('terraform init -reconfigure') 
+                bat ('terraform init -reconfigure') 
             }
         }
         stage ("terraform plan") {
             steps {
-                sh ('terraform plan') 
+                bat ('terraform plan') 
             }
         }
                 
         stage ("terraform Action") {
             steps {
                 echo "Terraform action is --> ${action}"
-                sh ('terraform ${action} --auto-approve') 
+                bat ('terraform ${action} --auto-approve') 
            }
         }
     }
